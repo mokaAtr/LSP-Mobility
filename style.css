@@ -1,0 +1,100 @@
+/* Style premium noir/or – LSP Mobility */
+
+:root {
+    --bg: #0a0a0a;
+    --card: #111;
+    --gold: #d4a64e;
+    --text: #f2f2f2;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+header {
+    background: #000;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--gold);
+}
+
+header h1 {
+    margin: 0;
+    color: var(--gold);
+    font-size: 26px;
+}
+
+nav a {
+    color: var(--text);
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+.hero {
+    height: 350px;
+    background: url('https://images.unsplash.com/photo-1518552718880-df5b7f0c9f4c') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-shadow: 0 0 10px #000;
+}
+
+.hero h2 {
+    font-size: 40px;
+    color: var(--gold);
+}
+
+.btn {
+    background: var(--gold);
+    color: #000;
+    padding: 12px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.container {
+    width: 90%;
+    margin: 40px auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: var(--card);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #222;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card h3 {
+    color: var(--gold);
+}
+
+footer {
+    margin-top: 50px;
+    padding: 20px;
+    text-align: center;
+    border-top: 2px solid var(--gold);
+    color: #666;
+}

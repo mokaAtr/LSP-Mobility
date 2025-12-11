@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Modèle – LSP Mobility</title>
+    <style>
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 40px auto;
+            max-width: 1000px;
+        }
+        .product-image {
+            flex: 1 1 400px;
+        }
+        .product-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .product-info {
+            flex: 1 1 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 15px;
+        }
+        .product-info h2 {
+            color: var(--gold);
+            margin: 0;
+        }
+        .product-info p {
+            color: var(--text);
+            line-height: 1.4;
+        }
+        .product-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .product-buttons a {
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .btn-add {
+            background: var(--gold);
+            color: #000;
+        }
+        .btn-rent {
+            background: #222;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>LSP Mobility</h1>
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="catalogue.html">Catalogue</a>
+        <a href="panier.html">Panier</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<div class="container product-container" id="product"></div>
+
+<script>
+const cars = {
+    1: { name:"Aixam City Sport", price:89, img:"aixam-city.webp", desc:"Petite voiture urbaine compacte, motorisation 6kW, 2 places. Idéale pour la ville et petits trajets." },
+    2: { name:"Ligier JS50", price:97, img:"Ligier-JS50.png", desc:"Voiture sans permis avec confort supérieur, motorisation 8kW, 2 places. Parfaite pour la ville." },
+    3: { name:"Microcar M.Go", price:79, img:"Microcar-M.Go.png", desc:"Compacte et maniable, motorisation 6kW, 2 places. Idéal pour les trajets quotidiens." },
+    4: { name:"Bellier B8", price:69, img:"Bellier-B8.png", desc:"Voiture premium sans permis, motorisation 7kW, design élégant, 2 places." },
+    5: { name:"Aixam Coupé", price:99, img:"Aixam-coupé.webp", desc:"Design sportif, motorisation 8kW, 2 places. Parfaite pour rouler en ville." },
+    6: { name:"Chatenet-CH46.webp", price:92, img:"Chatenet-CH46.webp", desc:"Voiture sans permis premium, motorisation 9kW, 2 places. Confort et style." },
+    7: { name:"Casalini-M14.jpg", price:85, img:"Casalini-M14.jpg", desc:"Voiture compacte et moderne, motorisation 7kW, 2 places. Idéale pour la ville." },
+    8: { name:"ligier-pulse-3.webp", price:74, img:"ligier-pulse-3.webp", desc:"Petit véhicule urbain, motorisation 6kW, 2 places. Parfait pour les déplacements quotidiens." },
+    9: { name:"Microcar-Dué.png", price:67, img:"Microcar-Dué.png", desc:"Compacte et maniable, motorisation 6kW, 2 places. Idéal pour débuter avec une voiture sans permis." }
+};
+
+const id = new URLSearchParams(location.search).get("car");
+const c = cars[id];
+
+if(c){
+    document.getElementById("product").innerHTML = `
+        <div class="product-image">
+            <img src="${c.img}" alt="${c.name}">
+        </div>
+        <div class="product-info">
+            <h2>${c.name}</h2>
+            <p><b>${c.price}€/mois</b></p>
+            <p>${c.desc}</p>
+
+            <label>Durée :</label><br>
+            <select id="duration">
+                <option value="12">1 an</option>
+                <option value="24">2 ans</option>
+                <option value="36">3 ans</option>
+                <option value="48">4 ans</option>
+                <option value="60">5 ans</option>
+            </select>
+
+            <div class="product-buttons">
+                <a class="btn-add" href="panier.html">Ajouter au panier</a>
+                <a class="btn-rent" href="confirmation.html">Louer directement</a>
+            </div>
+        </div>
+    `;
+}
+</script>
+
+<footer>Site démonstration – LSP Mobility</footer>
+
+</body>
+</html>
